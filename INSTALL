@@ -1,0 +1,9 @@
+Building 300coin
+
+See doc/readme-qt.rst for instructions on building 300coin QT,
+the intended-for-end-users, nice-graphical-interface, reference
+implementation of 300coin.
+
+See doc/build-*.txt for instructions on building 300coind,
+the intended-for-services, no-graphical-interface, reference
+implementation of 300coin.
