@@ -2510,7 +2510,7 @@ bool LoadBlockIndex(bool fAllowNew)
 {
     if (fTestNet)
     {
-        pchMessageStart[0] = 0xdc;
+        pchMessageStart[0] = 0x3d;
         pchMessageStart[1] = 0x2f;
         pchMessageStart[2] = 0x0c;
         pchMessageStart[3] = 0xfe;
@@ -2541,7 +2541,7 @@ bool LoadBlockIndex(bool fAllowNew)
             return false;
 
         // Genesis block
-        const char* pszTimestamp = "4 January 2014  Montreal Habs VS Ottawa Senators";
+        const char* pszTimestamp = "5 February 2014  Montreal 16:50PM";
         CTransaction txNew;
         txNew.nTime = nChainStartTime;
         txNew.vin.resize(1);
@@ -2554,7 +2554,7 @@ bool LoadBlockIndex(bool fAllowNew)
         block.hashPrevBlock = 0;
         block.hashMerkleRoot = block.BuildMerkleTree();
         block.nVersion = 1;
-        block.nTime    = 1388707200;
+        block.nTime    = 1391637021;
         block.nBits    = bnProofOfWorkLimit.GetCompact();
         block.nNonce   = 12344321;
 
@@ -2565,7 +2565,7 @@ bool LoadBlockIndex(bool fAllowNew)
         printf("block.nTime = %u \n", block.nTime);
         printf("block.nNonce = %u \n", block.nNonce);
 
-        assert(block.hashMerkleRoot == uint256("0x79a675e50085add3429826b0cd28f79842eb9ec39ed360991a74e4e257ae5c36"));
+        assert(block.hashMerkleRoot == uint256("0x8fbc3cfcc63f5274993a1bacd8f96df464251820702e4fff886ea52242536b8f"));
 		assert(block.GetHash() == (!fTestNet ? hashGenesisBlock : hashGenesisBlockTestNet));
 
         // Start new block file
@@ -2853,7 +2853,7 @@ bool static AlreadyHave(CTxDB& txdb, const CInv& inv)
 // The message start string is designed to be unlikely to occur in normal data.
 // The characters are rarely used upper ASCII, not valid as UTF-8, and produce
 // a large 4-byte int at any alignment.
-unsigned char pchMessageStart[4] = { 0xdc, 0x5a, 0xbd, 0xdf };
+unsigned char pchMessageStart[4] = { 0x3d, 0x5a, 0xbd, 0xdf };
 
 bool static ProcessMessage(CNode* pfrom, string strCommand, CDataStream& vRecv)
 {
